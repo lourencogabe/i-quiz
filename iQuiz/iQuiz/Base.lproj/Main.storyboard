@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g4m-WB-whE">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
@@ -15,28 +15,82 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="At0-uN-LMC">
-                                <rect key="frame" x="75" y="195" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="At0-uN-LMC">
+                                <rect key="frame" x="86.5" y="156.5" width="217" height="104"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbK-yU-QAI">
-                                <rect key="frame" x="64" y="376" width="262" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbK-yU-QAI">
+                                <rect key="frame" x="56" y="302" width="262" height="62"/>
                                 <color key="backgroundColor" red="0.45490196078431372" green="0.19607843137254902" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="c4k-CM-Syx"/>
+                                    <constraint firstAttribute="width" constant="262" id="k9j-Wm-Oif"/>
+                                </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Iniciar Quiz ">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="pressButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vf4-9S-uUb"/>
+                                    <segue destination="DO3-4Z-sh3" kind="show" id="Jbf-2E-q93"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.32156862745098036" green="0.11764705882352941" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="wbK-yU-QAI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5je-Vb-2fL"/>
+                            <constraint firstItem="At0-uN-LMC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ClK-5d-nXX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wbK-yU-QAI" secondAttribute="trailing" constant="64" id="Ije-pa-CCk"/>
+                            <constraint firstItem="wbK-yU-QAI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="N5D-Jd-c0p"/>
+                            <constraint firstItem="wbK-yU-QAI" firstAttribute="top" secondItem="At0-uN-LMC" secondAttribute="bottom" constant="42" id="avR-wg-OZr"/>
+                            <constraint firstItem="At0-uN-LMC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mZQ-KN-rKL"/>
+                            <constraint firstItem="wbK-yU-QAI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="64" id="t7G-n7-3Ac"/>
+                            <constraint firstItem="At0-uN-LMC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="y2c-26-agg"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="JME-U3-1rq"/>
+                    <connections>
+                        <outlet property="goQuiz" destination="wbK-yU-QAI" id="dZL-aU-qq0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="120" y="-27.014218009478672"/>
+            <point key="canvasLocation" x="1058.4000000000001" y="-27.436281859070466"/>
+        </scene>
+        <!--Question View Controller-->
+        <scene sceneID="i6l-db-n2l">
+            <objects>
+                <viewController id="DO3-4Z-sh3" customClass="QuestionViewController" customModule="iQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Iws-Bz-J7b">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="GTl-T9-aXW"/>
+                        <color key="backgroundColor" red="0.32156862749999998" green="0.1176470588" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rR3-Yc-BlE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C2k-Ll-CAI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1800.8" y="-27.436281859070466"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="LIF-PT-h69">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g4m-WB-whE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TKv-o2-thC">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="pF0-mc-O4Y"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q8m-f5-W7l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="119.2" y="-27.436281859070466"/>
         </scene>
     </scenes>
     <resources>
