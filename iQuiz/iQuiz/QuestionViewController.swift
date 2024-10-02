@@ -30,17 +30,20 @@ class QuestionViewController: UIViewController {
         if questionNumber < questions.count - 1 {
             questionNumber += 1
             Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(questionConfigure), userInfo: nil, repeats: false)
+        } else{
+            goScoreScreen()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        layoutConfigure()
         questionConfigure()
+        layoutConfigure()
+
     }
     
     func layoutConfigure(){
-        navigationItem.hidesBackButton = true	
+        navigationItem.hidesBackButton = true
         questionTitle.textAlignment = .center
         questionTitle.numberOfLines = 0
         
@@ -54,8 +57,17 @@ class QuestionViewController: UIViewController {
         
         for button in buttonCollection{
             let buttonTitle = questions[questionNumber].answers[button.tag]
-            button.setTitle(buttonTitle, for: .normal)
-            button.backgroundColor = UIColor(red: 116/255, green: 50/255, blue: 255/255, alpha: 1.0)
+                button.setTitle(buttonTitle, for: .normal)
+                button.backgroundColor = UIColor(red: 116/255, green: 50/255, blue: 255/255, alpha: 1.0)
         }
     }
+    
+    func goScoreScreen(){
+        performSegue(withIdentifier: "goScoreScreen", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let scoreViewController = segue.destination as? ScoreViewController else { return }
+        scoreViewController.score = pontuation
+        }
 }
